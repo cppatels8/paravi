@@ -4,7 +4,7 @@ import fs from 'fs';
 
 const VIDEO_DURATION_CMD = "ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ";
 const VIDEO_FRAME_CMD = "ffmpeg -hide_banner -loglevel panic -i ";
-const VIDEO_GENERATION_CMD = "cat tmp/*.png | ffmpeg -hide_banner -loglevel panic -f image2pipe -i - ";
+const VIDEO_GENERATION_CMD = "cat tmp/*.jpg | ffmpeg -hide_banner -loglevel panic -f image2pipe -i - ";
 /**
  * Determine the video duration in seconds
  */
@@ -33,7 +33,7 @@ export function getVideoFrame(videoFile, time) {
 
 export function savePng(canvas, fileName) {
 
-    fs.writeFileSync(fileName + '.png', canvas.toBuffer());
+    fs.writeFileSync(fileName + '.jpg', canvas.toBuffer());
 }
 
 

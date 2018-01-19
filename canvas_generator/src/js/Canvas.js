@@ -2,14 +2,20 @@ import fs from 'fs';
 import { createCanvas, loadImage, Image } from 'canvas'
 import { JSDOM } from 'jsdom';
 
-import { config } from './config/JoinVideos.example';
+// import { config } from './config/JoinVideos.example';
+import { config } from './config/ICICI';
 import { defineTimeline } from './timeline/Timeline';
 import { getVideoFrame, savePng, pad, rmDir, createVideo } from './utils/Utils';
 
 
-const FRAME_RATE = 24;
+const FRAME_RATE = 5;
 const IMG_TMP_DIR = 'tmp';
 const IMG_PREFIX = 'tmp/Img_';
+const DEFAULT_TEXT_FONT = '30px Tohama';
+const DEFAULT_TEXT_COLOR = 'black';
+const DEFAULT_CANVAS_WIDTH = 640;
+const DEFAULT_CANVAS_HEIGHT = 480;
+
 
 
 // Create video
@@ -41,7 +47,10 @@ function cleanup() {
 
 
 function startRecording(timelineConfig) {
-    const canvas = createCanvas(600, 400)
+    let canvasWidth = (timelineConfig.canvas && timelineConfig.canvas.width) ? timelineConfig.canvas.width : DEFAULT_CANVAS_WIDTH;
+    let canvasHeight = (timelineConfig.canvas && timelineConfig.canvas.height) ? timelineConfig.canvas.height : DEFAULT_CANVAS_HEIGHT;
+
+    const canvas = createCanvas(canvasWidth, canvasHeight)
     const ctx = canvas.getContext('2d')
 
     timelineConfig.timeline.forEach(function (t, i) {
@@ -50,18 +59,20 @@ function startRecording(timelineConfig) {
         // if (i > 0) { return; }
 
         // clear the canvas
-        ctx.clearRect(0, 0, 600, 400);
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
         // iterate through each action in that timeframe
         t.forEach(function (a, j) {
             if (a.actionType == 'play_video') {
                 saveVideoFrame(a.name, time - a.start_on, canvas, ctx);
+            } else if (a.actionType == 'text_graphics') {
+                renderTextAnimation(a, time, canvas, ctx);
             }
             return;
         })
 
         // save the output in a jpg file
-        savePng(canvas, IMG_PREFIX + pad(i, 4));
+        savePng(canvas, IMG_PREFIX + pad(i, 6));
     })
 
     // Initiate frame by frame rendering
@@ -86,10 +97,10 @@ function saveVideoFrame(videoFile, time, canvas, ctx) {
         ctx.drawImage(i, 0, 0);
     }
 
-    ctx.font = '30px Impact'
-    ctx.fillStyle = 'yellow';
-    // ctx.rotate(0.1)
-    ctx.fillText('Awesome!', 50 + (5 * time), 100 + (5 * time));
+    // ctx.font = '30px Impact'
+    // ctx.fillStyle = 'yellow';
+    // // ctx.rotate(0.1)
+    // ctx.fillText('Awesome!', 50 + (5 * time), 100 + (5 * time));
     // ctx.fillStyle = '#DD9';
     // ctx.fillRect(0, 0, 600, 400);
 }
@@ -98,7 +109,13 @@ function getImage(imageFile, renderingConfig) {
 
 }
 
-function getAnimationFrame(animationType, config, time) {
+function renderTextAnimation(config, time, canvas, context) {
+    if (typeof config.text == 'string') {
+        let pos = config.position.end;
+        context.font = (config.font) ? config.font : DEFAULT_TEXT_FONT;
+        context.fillStyle = (config.color) ? config.color : DEFAULT_TEXT_COLOR;
+        context.fillText(config.text, pos.x, pos.y);
+    }
 
 }
 

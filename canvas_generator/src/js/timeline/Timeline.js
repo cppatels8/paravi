@@ -28,7 +28,7 @@ export function defineTimeline(config, frame_rate) {
     }
 
     console.log("config :", config, videoTime, frameCount);
-    return { timeline, frameCount, frameDuration, videoTime };
+    return { timeline, frameCount, frameDuration, videoTime, canvas: config.canvas };
 }
 
 
