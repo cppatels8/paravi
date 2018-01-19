@@ -1,1 +1,4 @@
 canvas_generator/node_modules
+canvas_generator/tmp
+canvas_generator/src/js/CanvasOld2.js
+canvas_generator/src/js/CanvasOld.js

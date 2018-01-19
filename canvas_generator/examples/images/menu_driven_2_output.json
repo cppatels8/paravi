@@ -1,0 +1,247 @@
+[
+    {
+        "pageInfo": {
+            "pageId": 0,
+            "pageURL": "https://login.salesforce.com/",
+            "pageName": "Login | Salesforce"
+        },
+        "elements": [
+            {
+                "screenname": "",
+                "elementtype": "button",
+                "internalelementtype": "",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "button primary fiftyfifty right"
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "hint_save_edit"
+                    },
+                    {
+                        "keyidentifier": "name",
+                        "keyidentifierval": "Save"
+                    },
+                    {
+                        "keyidentifier": "onclick",
+                        "keyidentifierval": "LoginHint.saveHintEdit();"
+                    }
+                ]
+            },
+            {
+                "screenname": "",
+                "elementtype": "button",
+                "internalelementtype": "",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "button secondary fiftyfifty"
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "hint_back_edit"
+                    },
+                    {
+                        "keyidentifier": "name",
+                        "keyidentifierval": "Cancel"
+                    },
+                    {
+                        "keyidentifier": "onclick",
+                        "keyidentifierval": "LoginHint.showChooser();"
+                    }
+                ]
+            },
+            {
+                "screenname": "Username",
+                "elementtype": "input",
+                "internalelementtype": "email",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "input r4 wide mb16 mt8 username"
+                    },
+                    {
+                        "keyidentifier": "type",
+                        "keyidentifierval": "email"
+                    },
+                    {
+                        "keyidentifier": "value",
+                        "keyidentifierval": ""
+                    },
+                    {
+                        "keyidentifier": "name",
+                        "keyidentifierval": "username"
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "username"
+                    }
+                ]
+            },
+            {
+                "screenname": "Password",
+                "elementtype": "input",
+                "internalelementtype": "password",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "input r4 wide mb16 mt8 password"
+                    },
+                    {
+                        "keyidentifier": "type",
+                        "keyidentifierval": "password"
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "password"
+                    },
+                    {
+                        "keyidentifier": "name",
+                        "keyidentifierval": "pw"
+                    },
+                    {
+                        "keyidentifier": "onkeypress",
+                        "keyidentifierval": "checkCaps(event)"
+                    },
+                    {
+                        "keyidentifier": "autocomplete",
+                        "keyidentifierval": "off"
+                    }
+                ]
+            },
+            {
+                "screenname": "Log In",
+                "elementtype": "input",
+                "internalelementtype": "submit",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "button r4 wide primary"
+                    },
+                    {
+                        "keyidentifier": "type",
+                        "keyidentifierval": "submit"
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "Login"
+                    },
+                    {
+                        "keyidentifier": "name",
+                        "keyidentifierval": "Login"
+                    },
+                    {
+                        "keyidentifier": "value",
+                        "keyidentifierval": "Log In"
+                    }
+                ]
+            },
+            {
+                "screenname": "Remember me",
+                "elementtype": "input",
+                "internalelementtype": "checkbox",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "type",
+                        "keyidentifierval": "checkbox"
+                    },
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "r4 fl mr8"
+                    },
+                    {
+                        "keyidentifier": "style",
+                        "keyidentifierval": ""
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "rememberUn"
+                    },
+                    {
+                        "keyidentifier": "name",
+                        "keyidentifierval": "rememberUn"
+                    }
+                ]
+            },
+            {
+                "screenname": "Custom Domain",
+                "elementtype": "input",
+                "internalelementtype": "text",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "type",
+                        "keyidentifierval": "text"
+                    },
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "input wide focus mt8 mb16"
+                    },
+                    {
+                        "keyidentifier": "name",
+                        "keyidentifierval": "mydomain"
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "mydomain"
+                    },
+                    {
+                        "keyidentifier": "onkeyup",
+                        "keyidentifierval": "DomainSwitcher.updateMyDomain(this, event);"
+                    }
+                ]
+            },
+            {
+                "screenname": "Custom Domain",
+                "elementtype": "button",
+                "internalelementtype": "",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "button primary fiftyfifty right"
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "mydomainContinue"
+                    },
+                    {
+                        "keyidentifier": "name",
+                        "keyidentifierval": "Continue"
+                    },
+                    {
+                        "keyidentifier": "onclick",
+                        "keyidentifierval": "DomainSwitcher.handleMyDomain();"
+                    }
+                ]
+            },
+            {
+                "screenname": "",
+                "elementtype": "button",
+                "internalelementtype": "",
+                "action": "",
+                "attributes": [
+                    {
+                        "keyidentifier": "class",
+                        "keyidentifierval": "button secondary fiftyfifty"
+                    },
+                    {
+                        "keyidentifier": "id",
+                        "keyidentifierval": "hint_back_domain"
+                    },
+                    {
+                        "keyidentifier": "onclick",
+                        "keyidentifierval": "DomainSwitcher.dismissCustomDomain(\u0027Login\u0027,\u0027 | Salesforce\u0027);"
+                    }
+                ]
+            }
+        ]
+    }
+]
