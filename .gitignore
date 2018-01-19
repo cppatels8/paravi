@@ -1,9 +1,5 @@
-canvas_generator/node_modules
-canvas_generator/tmp
-canvas_generator/src/js/CanvasOld2.js
-canvas_generator/src/js/CanvasOld.js
-canvas_generator/*.mp4
-canvas_generator/examples/images/ICICI.mp4
-canvas_generator/package-lock.json
-canvas_generator/temp.jpg
-moviepy/env
+venv/
+.idea
+*/node_modules/
+*.sqlite3
+*.pyc
