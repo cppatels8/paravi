@@ -60,8 +60,10 @@ config_format = \
 
 def generate_video_from_config(config, input_video_path, output_video_path):
 
-    if not type(config) == dict:
+    if type(config) is not dict:
         raise Exception('Config argument must be a dict, got {}'.format(str(type(config))))
+    if 'show_text' not in config:
+        raise Exception("Config must have a 'show_text' key.")
 
     input_video_clip = VideoFileClip(input_video_path)
 
@@ -73,8 +75,8 @@ def generate_video_from_config(config, input_video_path, output_video_path):
     global_bg_color = global_text_params.get('bg_color')
     global_weight = global_text_params.get('weight')
 
-    if not all([global_font, global_color, global_size, global_weight]):
-        raise Exception("Global text font, color, size and weight must be defined.")
+    if not all([global_font, global_color, global_bg_color, global_size, global_weight]):
+        raise Exception("Global text font, color, bg_color, size and weight must be defined.")
 
     show_text_recs = show_text_config['recs']
 
@@ -94,8 +96,11 @@ def generate_video_from_config(config, input_video_path, output_video_path):
 
         if not all([rec_text, rec_start, rec_end, rec_position]):
             raise Exception("start, end, position and text should be defined for each record")
+        if type(rec_position) is not list or len(rec_position) < 2:
+            raise Exception("'position' must be a list of length 2, containing x and y coords")
 
         text_clips.append(TextClip(rec_text,
+                                   font=rec_font,
                                    fontsize=rec_size,
                                    stroke_color=rec_color,
                                    bg_color=rec_bg_color,
