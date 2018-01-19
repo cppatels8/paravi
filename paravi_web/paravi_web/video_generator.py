@@ -59,6 +59,10 @@ config_format = \
 
 
 def generate_video_from_config(config, input_video_path, output_video_path):
+
+    if not type(config) == dict:
+        raise Exception('Config argument must be a dict, got {}'.format(str(type(config))))
+
     input_video_clip = VideoFileClip(input_video_path)
 
     show_text_config = config['show_text']
