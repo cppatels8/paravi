@@ -1,0 +1,70 @@
+mr kumar has always wanted to be astronaut
+
+but mr kumar, do you know, that he needs money for his higer education
+
+that means, he has invested in Aviva Child Plans
+
+Aviva understands, rising education cost is the big concern for every parent.
+
+With Aviva Child Plans, you add to your saving, to created funds for key milestones in your childs life.
+
+And in case you are not around, the sum assured is paid out immediately. The policy continues, without you having to pay any future premiums.
+
+Which means your child dreams remain intact. 
+
+Look, mr kumar is teaching his son, how to to moon walk.
+
+
+-------------------------------------------------------------
+
+You always want your child (son) to shine bright in the future.
+
+
+child's gender, child's age,    higher studies/ secure future
+
+growth / child plan / retirements
+
+investment / month  - 10000, 20000, 30000, 50000
+
+--------------------
+You always want to ensure a secure future for your child.
+if(age < 6) It's important to start early, for maximum benefit
+else   It important you plan now, before its late
+
+
+--
+Planning for your child to study abroad for higher education.
+if(age < 6) But, do you know, you need to start early, for maximum benefit
+else   It important you plan now, before its late
+-else   It's never too late with Aviva Child Plans
+
+--------
+
+Aviva understands, rising education cost is the big concern for every parent.
+With Aviva Child Plans, you add to your saving, to created funds for key milestones in your childs life.
+
+show text = (investment / month) + sum assured on maturity based on childs age
+------------
+
+Here's the quick comparison of Aviva's child plans that will suit you.
+(show comparison based on growth & monthly investment)
+
+Remember, in case you are not around, the sum assured is paid out immediately, with no future premiums to be paid. Which means your child dreams remain intact. 
+
+So, With  Aviva  Child Plans, You can relax and enjoy
+
+
+-----------------------------------
+
+
+say -v Alex -r 300 "You always want to ensure a secure future for your child." -o secure.aiff
+say -v Alex -r 300 "It's important to start early, for maximum benefit" -o start_early.aiff
+say -v Alex -r 300 "It important you plan now, before its late" -o soon.aiff
+say -v Alex -r 300 "Planning for your child to study abroad for higher education." -o abroad.aiff
+say -v Alex -r 300 "But, do you know, you need to start early, for maximum benefit" -o start_early2.aiff
+say -v Alex -r 300 "It important you plan now, before its late" -o soon2.aiff
+say -v Alex -r 300 "Aviva understands, rising education cost is the big concern for every parent." -o understand.aiff
+say -v Alex -r 300 "With Aviva Child Plans, you add to your saving, to created funds for key milestones in your childs life." -o savings.aiff
+say -v Alex -r 300 "Here's the quick comparison of Aviva's child plans that will suit you." -o plan_comparison.aiff
+say -v Alex -r 300 "Remember, in case you are not around, the sum assured is paid out immediately, with no future premiums to be paid. Which means your child dreams remain intact. " -o not_around.aiff
+say -v Alex -r 300 "So, With  Aviva  Child Plans, You can relax and enjoy" -o enjoy.aiff
