@@ -23,7 +23,18 @@
 		});
 	});
 	
-	
+	if(window.location.pathname == "/success/") {
+		setTimeout(function() {
+		       $.ajax({ url: "/job-status/", success: function(data, textStatus, jQxhr) {
+		    	   if(data["job_status"].toLowerCase() == "success") {
+		    		   $("#message").removeClass("display-hidden");
+			    	   $("#loader").removeClass("loader");
+		    	   }
+		       }, dataType: "json", complete: poll });
+		    }, 3000);
+	}
+
+
 	$(".cal-total").on('change', function(e) {
 		var payout = $('.payout').val(),
 			duration = $('.duration').val();

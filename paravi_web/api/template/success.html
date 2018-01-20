@@ -1,9 +1,35 @@
 {% extends "base.html" %} 
 
 {% block content %}
+	<style>
+		.loader {
+		    border: 16px solid #f3f3f3; /* Light grey */
+		    border-top: 16px solid #3498db; /* Blue */
+		    border-radius: 50%;
+		    width: 120px;
+		    position: fixed;
+		    left: 50%;
+		    top: 50%;
+		    margin-top: -40px;
+		    margin-left: -28px;
+		    height: 120px;
+		    animation: spin 2s linear infinite;
+		}
+		
+		@keyframes spin {
+		    0% { transform: rotate(0deg); }
+		    100% { transform: rotate(360deg); }
+		}
+		
+		.display-hidden {
+			display:none;
+		}
+		
+	</style>
 	<div class="container">
 		<div class="row">
-			<div class="">
+			<div id="loader" class="loader"></div>
+			<div id="message" class="display-hidden">
 				Thanks, Following is your link of your policy summary.
 				<a class="generated-video" href="/"> Watch here</a>  
 			</div>

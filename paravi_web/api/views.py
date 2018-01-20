@@ -38,8 +38,6 @@ def get_insurance(request):
 
 def get_success(request):
     request_id = request.GET.get("request_id")
-    job_id = request.GET.get("job_id")
-    #TODO: Write a logic to get URL
-    url = ""
+    url = "https://s3.ap-south-1.amazonaws.com/hackathon-paravi/hashathon/{0}.mp4".format(request_id)
     return render(request, 'success.html', {"url": url})
 
