@@ -29,10 +29,10 @@ def generate_config_from_params(param_dict, fields_mapping, **global_text_params
                 "size": 25,
                 "color": "black",
                 "weight": 2,
-                "bg_color": "white",
-                **global_text_params
+                "bg_color": "white"
             },
             "recs": recs
         }
     }
+    config["show_text"]["global_text_params"].update(**global_text_params)
     return config

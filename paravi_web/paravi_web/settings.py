@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'moviepy',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'HOST': os.environ.get("DATABASE", "localhost"),
         'PORT': '3306',
     }
 }
@@ -133,7 +133,7 @@ STATICFILES_DIRS = [
 
 
 CELERY_RESULT_BACKEND = 'django-db'
-CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://{0}:6379'.format(os.environ.get("REDIS", "localhost"))
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
@@ -146,10 +146,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 
 
-# Twilio Client
-ACCOUNT_SID = os.getenv("SMS_ACCOUT_SID")
-# Your Auth Token from twilio.com/console
-AUTH_TOKEN = os.getenv("SMS_AUTH_TOKEN")
 
 # S3
 S3_ACCESS_KEY = os.getenv("S3_ACCESS_KEY")
