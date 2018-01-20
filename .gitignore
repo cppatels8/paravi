@@ -5,3 +5,4 @@ venv/
 *.pyc
 paravi_web/env/*
 paravi_web/pyvenv.cfg
+paravi_web/api/output/
