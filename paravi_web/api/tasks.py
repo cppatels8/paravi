@@ -24,19 +24,31 @@ def output_path(file_name):
 
 INPUT_VIDEO_FILE = '/home/nishant/video.mp4'
 FIELD_MAPPING = {
-    "premium": [
+    "nominee": [
         {
-            "start": 2,
-            "end": 5,
-            "position": ["center", "center"],
-        },
-        {
-            "start": 7,
-            "end": 11,
-            "position": [45, "center"],
+            "start": 48,
+            "end": 51,
+            "position": [750, 450],
         }
     ],
-    "email": []
+    "emi": [
+        {
+            "start": 56,
+            "end": 63,
+            "position": [520, 520],
+        }
+    ],
+    "payout": [
+        {
+            "start": 65,
+            "end": 71,
+            "position": [520, 550],
+            "text_params": {
+                "size": 40
+            }
+        }
+    ],
+
 }
 
 
@@ -92,8 +104,8 @@ def send_sms(number, message):
 
 def send_email_with_video(video_file_path, recipient_email):
     f = open(video_file_path, 'rb')
-    email = EmailMessage(subject='Video is ready',
-                         body='video is ready',
+    email = EmailMessage(subject='Term Life Insurance Policy Details (Video)',
+                         body='',
                          to=[recipient_email],
-                         attachments=[('video.mp4', f.read())])
+                         attachments=[('Policy.mp4', f.read())])
     email.send()
