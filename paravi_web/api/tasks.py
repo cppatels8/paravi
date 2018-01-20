@@ -22,8 +22,8 @@ def output_path(file_name):
     return os.path.join(settings.BASE_DIR, "api", "output", file_name)
 
 
-INPUT_VIDEO_FILE = '/home/nishant/video.mp4'
-FIELD_MAPPING = {
+INPUT_VIDEO_FILE = '/home/nishant/Downloads/240.mp4'
+INSURANCE_FIELD_MAPPING = {
     "nominee": [
         {
             "start": 48,
@@ -48,15 +48,46 @@ FIELD_MAPPING = {
             }
         }
     ],
+    "terms1": [
+        {
+            "start": 73,
+            "end": 81,
+            "position": [200, 400]
+        }
+    ],
+    "terms2": [
+        {
+            "start": 74,
+            "end": 81,
+            "position": [800, 400]
+        }
+    ],
+    "terms3": [
+        {
+            "start": 75,
+            "end": 81,
+            "position": [200, 525]
+        }
+    ],
+    "terms4": [
+        {
+            "start": 76,
+            "end": 81,
+            "position": [800, 525]
+        }
+    ]
 
 }
-
 
 
 @shared_task
 def run_moviepy(request_id, data):
     logger.info("Starting to create config for {0}".format(data))
-    config = generate_config_from_params(data, FIELD_MAPPING)
+    data.update({'terms1': 'TERMS & CONDS',
+                 'terms2': 'TERMS & CONDS',
+                 'terms3': 'TERMS & CONDS',
+                 'terms4': 'TERMS & CONDS', })
+    config = generate_config_from_params(data, INSURANCE_FIELD_MAPPING)
     logger.info("Saving output video for {0}".format(data))
     output_dir = output_path(request_id)
     if not os.path.exists(output_dir):
