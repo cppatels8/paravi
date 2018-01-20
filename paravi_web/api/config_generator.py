@@ -25,11 +25,11 @@ def generate_config_from_params(param_dict, fields_mapping, **global_text_params
     config = {
         "show_text": {
             "global_text_params": {
-                "font": "Amiri-Bold",
-                "size": 25,
+                "font": "Amiri-Regular",
+                "size": 14,
                 "color": "black",
-                "weight": 2,
-                "bg_color": "white"
+                "weight": 0.01,
+                "bg_color": "transparent"
             },
             "recs": recs
         }

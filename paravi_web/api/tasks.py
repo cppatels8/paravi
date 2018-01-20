@@ -24,25 +24,46 @@ def output_path(file_name):
 
 INPUT_VIDEO_FILE = template_path("240.mp4")
 INSURANCE_FIELD_MAPPING = {
+    "name": [
+        {
+            "start": 31.5,
+            "end": 41,
+            "position": [194, 86],
+        }
+    ],
+    "age": [
+        {
+            "start": 32,
+            "end": 41,
+            "position": [194, 117],
+        }
+    ],
+    "phone_number": [
+        {
+            "start": 33,
+            "end": 41,
+            "position": [194, 148],
+        }
+    ],
     "nominee": [
         {
-            "start": 48,
+            "start": 47,
             "end": 51,
-            "position": [750, 450],
+            "position": [252, 147],
         }
     ],
     "emi": [
         {
             "start": 56,
             "end": 63,
-            "position": [520, 520],
+            "position": [138, 171],
         }
     ],
     "payout": [
         {
-            "start": 65,
+            "start": 64.5,
             "end": 71,
-            "position": [520, 550],
+            "position": [128, 184.5],
             "text_params": {
                 "size": 40
             }
@@ -51,29 +72,29 @@ INSURANCE_FIELD_MAPPING = {
     "terms1": [
         {
             "start": 73,
-            "end": 81,
-            "position": [200, 400]
+            "end": 81.5,
+            "position": [58, 130]
         }
     ],
     "terms2": [
         {
-            "start": 74,
-            "end": 81,
-            "position": [800, 400]
+            "start": 73.5,
+            "end": 81.5,
+            "position": [256, 130]
         }
     ],
     "terms3": [
         {
-            "start": 75,
-            "end": 81,
-            "position": [200, 525]
+            "start": 74,
+            "end": 81.5,
+            "position": [58, 171]
         }
     ],
     "terms4": [
         {
-            "start": 76,
-            "end": 81,
-            "position": [800, 525]
+            "start": 75,
+            "end": 81.5,
+            "position": [256, 171]
         }
     ]
 

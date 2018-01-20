@@ -5,53 +5,72 @@ config_example = \
 {
     "show_text": {
         "global_text_params": {
-            "font": "Amiri-Bold",
-            "size": 25,
+            "font": "Amiri-Regular",
+            "size": 14,
             "color": "black",
-            "weight": 2,
-            "bg_color": "white"
+            "weight": 0.01,
+            "bg_color": "transparent"
         },
         "recs": [
             {
-                "text": "HELLO",
-                "start": 2,
-                "end": 30,
-                "position": ["center", "center"],
+                "text": "Chandan Patel",
+                "start": 31.5,
+                "end": 41,
+                "position": [194, 86],
             },
             {
-                "text": "HELLO 2",
-                "start": 10,
-                "end": 30,
-                "position": ["center", 50],
-            }
-        ]
-    }
-}
-
-
-config_format = \
-{
-    "show_text": {
-        "global_text_params": {
-            "font": "",
-            "size": 0,
-            "color": "",
-            "weight": 0,
-            "bg_color": ""
-        },
-        "recs": [
+                "text": "29",
+                "start": 32,
+                "end": 41,
+                "position": [194, 117],
+            },
             {
-                "text": "",
-                "start": 0,
-                "end": 0,
-                "position": ["x", "y"],
-                "text_params": {
-                    "font": "",
-                    "size": 0,
-                    "color": "",
-                    "bg_color": "",
-                    "weight": 0
-                }
+                "text": "9886032650",
+                "start": 33,
+                "end": 41,
+                "position": [194, 148],
+            },
+            {
+                "text": "Vinit",
+                "start": 47,
+                "end": 51,
+                "position": [252, 147],
+            },
+            {
+                "text": "Rs 10,000",
+                "start": 56,
+                "end": 63,
+                "position": [138, 171],
+            },
+            {
+                "text": "Sum assured 1Cr",
+                "start": 64.5,
+                "end": 71,
+                "position": [128, 184.5],
+            },
+            {
+                "text": "Accident",
+                "start": 73,
+                "end": 81.5,
+                "position": [58, 130],
+            },
+            {
+                "text": "Disability",
+                "start": 73.5,
+                "end": 81.5,
+                "position": [256, 130],
+            },
+            {
+                "text": "Unnatural",
+                "start": 74,
+                "end": 81.5,
+                "position": [58, 171],
+            },
+            {
+                "text": "Suicide",
+                "start": 75,
+                "end": 81.5,
+                "position": [256, 171],
             }
         ]
     }
@@ -115,5 +134,5 @@ def generate_video_from_config(config, input_video_path, output_video_path):
 
 
 if __name__ == "__main__":
-    generate_video_from_config(config_example, "/home/nishant/video.mp4", "/home/nishant/output.mp4")
+    generate_video_from_config(config_example, "/Users/chandanpatel/workspace/paravi/paravi_web/api/template/240.mp4", "/Users/chandanpatel/Desktop/output_low.mp4")
 
