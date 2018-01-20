@@ -1,0 +1,46 @@
+/** Base Classes **/
+
+.page-heading {
+	margin-top: 3%;
+}
+
+.dump-filepath-error {
+	margin-top: 2%;
+	display: none;
+}
+
+
+
+/** Configure Style **/
+.config-head {
+	margin: 2% 0 2% 0;
+}
+
+.config-form {
+	margin: 0 20% 0 20%;
+}
+
+.path-config {
+	margin: 8% 0 0 0;
+}
+
+.input-file {
+	background-color: #1233;
+}
+
+.or-sep {
+	margin: 5% 0 5% 0;
+}
+
+
+/** SQL Editor **/
+.result-box {
+	margin: 2% 0% 0% 0%;
+}
+
+
+/** Data Visual **/
+
+/** Dashboard **/
+
+

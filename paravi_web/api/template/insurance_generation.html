@@ -1,0 +1,44 @@
+{% extends "base.html" %} 
+
+{% block content %}
+	<div class="container">
+		<div class="">
+			<form class="insurance-form">
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Full Name</label>
+			    <input type="text" class="form-control" name="name">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Age</label>
+			    <input type="number" class="form-control" name="age">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Phone Number</label>
+			    <input type="text" class="form-control" name="phone_number">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Email address</label>
+			    <input type="email" class="form-control" name="email">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleTextarea">Nominee</label>
+			    <input type="text" class="form-control" name="nominee">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleTextarea">Monthly Payout</label>
+			    <input type="number" class="form-control cal-total payout" name="emi">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleTextarea">Policy Duration</label>
+			    <input type="number" class="form-control cal-total duration" name="duration">
+			    <small class="form-text text-muted">In years. Number of years for which you want to buy this policy.</small>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleTextarea">Policy Amount</label>
+			    <input type="number" class="form-control amount" name="payout" readonly value="0">
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			</div>
+	</div>
+{% endblock content %}

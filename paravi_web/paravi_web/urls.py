@@ -19,5 +19,7 @@ from api import views
 
 urlpatterns = [
     path('create-personalized-video/', views.create_movie),
+    path('insurance/', views.get_insurance),
     path('job-status/', views.job_status),
+    path('success/', views.get_success),
 ]
