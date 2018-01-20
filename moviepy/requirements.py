@@ -1,3 +1,0 @@
-moviepy
-pytweening
-django

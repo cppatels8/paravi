@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'moviepy',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
