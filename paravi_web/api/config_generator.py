@@ -18,9 +18,10 @@ fields_mapping = \
 def generate_config_from_params(param_dict, fields_mapping, **global_text_params):
     recs = []
     for param_name, value in param_dict.items():
-        for rec in fields_mapping[param_name]:
-            rec['text'] = str(value)
-            recs.append(rec)
+        if param_name in fields_mapping:
+            for rec in fields_mapping[param_name]:
+                rec['text'] = str(value)
+                recs.append(rec)
     config = {
         "show_text": {
             "global_text_params": {
