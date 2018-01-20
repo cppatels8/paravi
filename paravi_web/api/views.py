@@ -25,9 +25,8 @@ def create_movie(request):
 
 @csrf_exempt
 def job_status(request):
-    data = json.loads(request.body.decode("utf-8"))
-    job_id = data['job_id']
-    logger.info("Finding Status for Job: {0}".format(data['job_id']))
+    job_id = request.GET.get("job_id")
+    logger.info("Finding Status for Job: {0}".format(job_id))
     status = imcomposer.job_status(job_id)
     logger.info("Job Status is : {0}".format(status))
     return JsonResponse({"job_status": status})

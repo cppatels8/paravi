@@ -24,16 +24,28 @@
 	});
 	
 	if(window.location.pathname == "/success/") {
-		setTimeout(function() {
-		       $.ajax({ url: "/job-status/", success: function(data, textStatus, jQxhr) {
-		    	   if(data["job_status"].toLowerCase() == "success") {
-		    		   $("#message").removeClass("display-hidden");
-			    	   $("#loader").removeClass("loader");
-		    	   }
-		       }, dataType: "json", complete: poll });
-		    }, 3000);
+		$.urlParam = function(name){
+			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+			return results[1] || 0;
+		}
+		
+		var request_id = $.urlParam('request_id'),
+			job_id = $.urlParam('job_id');
+
+		var clearInterval = setInterval(function() {
+							       $.ajax({ url: "/job-status/", data: {"request_id": request_id, "job_id": job_id} ,success: function(data, textStatus, jQxhr) {
+							    	   if(data["job_status"].toLowerCase() == "success") {
+							    		   $("#message").removeClass("display-hidden");
+								    	   $("#loader").removeClass("loader");
+								    	   window.clearInterval(clearInterval)
+							    	   }
+							       }, dataType: "json"});
+							    }, 3000);
 	}
 
+	
+	
+	
 
 	$(".cal-total").on('change', function(e) {
 		var payout = $('.payout').val(),
