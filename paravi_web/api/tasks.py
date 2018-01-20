@@ -1,12 +1,15 @@
 from __future__ import absolute_import, unicode_literals
+
+import os
+
 from celery import shared_task
-from moviepy.editor import *
-import pytweening
 from celery.app import log
 from django.conf import settings
-import os
+from django.core.mail import EmailMessage
 from twilio.rest import Client
-import boto3
+
+from .config_generator import generate_config_from_params
+from .video_generator import generate_video_from_config
 
 logger = log.get_logger(__name__)
 
@@ -19,34 +22,37 @@ def output_path(file_name):
     return os.path.join(settings.BASE_DIR, "api", "output", file_name)
 
 
+INPUT_VIDEO_FILE = '/home/nishant/video.mp4'
+FIELD_MAPPING = {
+    "premium": [
+        {
+            "start": 2,
+            "end": 5,
+            "position": ["center", "center"],
+        },
+        {
+            "start": 7,
+            "end": 11,
+            "position": [45, "center"],
+        }
+    ],
+    "email": []
+}
+
+
+
 @shared_task
-def run_moviepy(request_id, **kwargs):
-    # Load myHolidays.mp4 and select the subclip 00:00:50 - 00:00:60
-    logger.info("Starting to create video for {0}".format(kwargs['name']))
-
-    clip = VideoFileClip(template_path(kwargs['name'])).subclip(0, 5)
-
-    def pos(t):
-        x = pytweening.easeOutSine(t / 2) * 100
-        return x, 'center'
-
-    txt_clip = TextClip("My Holidays 2013", fontsize=20, color='yellow')
-    txt_clip = (txt_clip
-                .set_position(pos)
-                .set_duration(2))
-
-    # Overlay the text clip on the first video clip
-    video = CompositeVideoClip([clip, txt_clip])
-
-    # Write the result to a file (many options available !)
-    logger.info("Saving output video for {0}".format(kwargs['name']))
+def run_moviepy(request_id, data):
+    logger.info("Starting to create config for {0}".format(data))
+    config = generate_config_from_params(data, FIELD_MAPPING)
+    logger.info("Saving output video for {0}".format(data))
     output_dir = output_path(request_id)
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    output_file = output_path("{0}/output.mp4".format(output_dir))
-    video.write_videofile(output_file)
-    logger.info("Saved video for {0} at {1}".format(kwargs['name'], output_file))
-    post_compose(output_file, **kwargs)
+    output_file_path = output_path("{0}/output.mp4".format(output_dir))
+    generate_video_from_config(config, INPUT_VIDEO_FILE, output_file_path)
+    logger.info("Saved video for {0} at {1}".format(data, output_file_path))
+    send_email_with_video(output_file_path, data['email'])
 
 
 def post_compose(request_id, output_file, **kwargs):
@@ -82,3 +88,12 @@ def send_sms(number, message):
         from_=9886032650,
         body=message)
     logger.info("SMS sent to twilio: {0}".format(message.id))
+
+
+def send_email_with_video(video_file_path, recipient_email):
+    f = open(video_file_path, 'rb')
+    email = EmailMessage(subject='Video is ready',
+                         body='video is ready',
+                         to=[recipient_email],
+                         attachments=[('video.mp4', f.read())])
+    email.send()

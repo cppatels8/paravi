@@ -1,5 +1,3 @@
-from .video_generator import generate_video_from_config
-
 fields_mapping = \
     {
         "param_name": [

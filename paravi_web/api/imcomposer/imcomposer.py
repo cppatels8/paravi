@@ -8,9 +8,9 @@ def generate_hash(data):
     return hashlib.md5(json.dumps(data, sort_keys=True).encode('utf-8')).hexdigest()
 
 
-def start_compose(**kwargs):
-    request_id = generate_hash(kwargs)
-    job_id = run_moviepy.delay(request_id, **kwargs).id
+def start_compose(data):
+    request_id = generate_hash(data)
+    job_id = run_moviepy.delay(request_id, data).id
     return request_id, job_id
 
 

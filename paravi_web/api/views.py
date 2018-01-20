@@ -14,9 +14,11 @@ logger = logging.getLogger(__name__)
 
 @csrf_exempt
 def create_movie(request):
-    data = json.loads(request.body.decode("utf-8"))
+    data = request.POST
+    if 'email' not in data:
+        return JsonResponse({'message': "'email' is required."}, status=400)
     logger.info("Creating Movie for request: {0}".format(data))
-    res = imcomposer.start_compose(**data)
+    res = imcomposer.start_compose(data)
     return JsonResponse(dict(zip(("request_id", "job_id"), res)))
 
 
